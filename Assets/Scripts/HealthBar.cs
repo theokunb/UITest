@@ -11,6 +11,7 @@ public class HealthBar : MonoBehaviour
     [SerializeField] private float _changeRate;
 
     private Slider _bar;
+    private Coroutine _changeValueTask;
 
     private void OnEnable()
     {
@@ -31,7 +32,12 @@ public class HealthBar : MonoBehaviour
 
     private void HealthChanged()
     {
-        StartCoroutine(ChangeValue());
+        if(_changeValueTask != null)
+        {
+            StopCoroutine(_changeValueTask);
+        }
+        
+        _changeValueTask = StartCoroutine(ChangeValue());
     }
 
     private IEnumerator ChangeValue()
