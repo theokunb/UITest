@@ -29,11 +29,6 @@ public class HealthBar : MonoBehaviour
         _bar.value = _playerHealth.CurrentHealth;
     }
 
-    private void Update()
-    {
-        _displayValue.text = $"{_bar.value}/{_bar.maxValue}";
-    }
-
     private void HealthChanged()
     {
         StartCoroutine(ChangeValue());
@@ -44,6 +39,7 @@ public class HealthBar : MonoBehaviour
         while(_bar.value != _playerHealth.CurrentHealth)
         {
             _bar.value = Mathf.MoveTowards(_bar.value, _playerHealth.CurrentHealth, _changeRate * Time.deltaTime);
+            _displayValue.text = $"{_bar.value}/{_bar.maxValue}";
             yield return null;
         }
     }

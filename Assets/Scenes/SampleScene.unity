@@ -1340,7 +1340,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerHealth: {fileID: 542612813}
   _displayValue: {fileID: 374486376}
-  _changeRate: 160
+  _changeRate: 150
 --- !u!1 &1458439055
 GameObject:
   m_ObjectHideFlags: 0
